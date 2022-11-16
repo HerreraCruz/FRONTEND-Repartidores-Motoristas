@@ -1,11 +1,20 @@
 body {
     background-color: #F1EB55;
-    /*background-image: url(/assets/img/1.png);*/
     background-repeat: no-repeat;
     background-size: 400px;
     background-position-y: 150px;
     background-position-x: center;
     font-family: 'Fredoka One', cursive;
+ }
+
+ #facetas {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+
  }
  
  #titulo {
@@ -20,7 +29,8 @@ body {
  
  #imagen {
     padding-top: 30px;
-    width: 100%;
+    /*width: 100%;*/
+    height: 450px;
  }
  
  #login-signup {
