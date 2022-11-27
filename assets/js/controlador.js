@@ -18,7 +18,7 @@ var usuarios = [
             {
                 status: 0,
                 category: 1,
-                socios: 1,
+                socios: 2,
                 productos: 3,
                 unidades: 2,
             },
@@ -41,9 +41,9 @@ var usuarios = [
         numero: 99887766,
         pedidos: [
             {
-                status: 0,
+                status: 1,
                 category: 1,
-                socios: 1,
+                socios: 2,
                 productos: 3,
                 unidades: 1,
             },
@@ -82,14 +82,14 @@ var usuarios = [
             {
                 status: 0,
                 category: 1,
-                socios: 1,
+                socios: 2,
                 productos: 2,
                 unidades: 1,
             },
             {
                 status: 0,
                 category: 1,
-                socios: 1,
+                socios: 3,
                 productos: 3,
                 unidades: 1,
             }
@@ -114,7 +114,7 @@ var usuarios = [
             {
                 status: 0,
                 category: 1,
-                socios: 1,
+                socios: 2,
                 productos: 5,
                 unidades: 1,
             },
@@ -124,6 +124,137 @@ var usuarios = [
                 socios: 1,
                 productos: 6,
                 unidades: 1,
+            }
+        ]
+    }
+];
+
+var usuariosMotoristas = [
+    {
+        id: 1,
+        nombre: "trunks",
+        imagenPerfil: "assets/img/profile-pics/trunks.jpg",
+        correo: 'trunks@unah.hn',
+        contraseña:'alemania',
+        direccion: 'boulevard suyapa',
+        numero: 99887766,
+        pedidos: [
+            {
+                status: 0,
+                category: 1,
+                socios: 4,
+                productos: 1,
+                unidades: 1,
+            },
+            {
+                status: 0,
+                category: 2,
+                socios: 5,
+                productos: 0,
+                unidades: 2,
+            },
+            {
+                status: 0,
+                category: 3,
+                socios: 5,
+                productos: 0,
+                unidades: 4,
+            }
+        ]
+    },
+    {
+        id: 2,
+        nombre: "baby",
+        imagenPerfil: "assets/img/profile-pics/baby.jpg",
+        correo: 'baby@unah.hn',
+        contraseña:'españa',
+        direccion: 'boulevard suyapa',
+        numero: 99887766,
+        pedidos: [
+            {
+                status: 0,
+                category: 1,
+                socios: 4,
+                productos: 1,
+                unidades: false,
+            },
+            {
+                status: 0,
+                category: 2,
+                socios: 5,
+                productos: 0,
+                unidades: true,
+            },
+            {
+                status: 0,
+                category: 3,
+                socios: 5,
+                productos: 0,
+                unidades: true,
+            }
+        ]
+    },
+    {
+        id: 3,
+        nombre: "krilin",
+        imagenPerfil: "assets/img/profile-pics/krilin.jpg",
+        correo: 'krilin@unah.hn',
+        contraseña:'suiza',
+        direccion: 'boulevard suyapa',
+        numero: 99887766,
+        pedidos: [
+            {
+                status: 0,
+                category: 1,
+                socios: 4,
+                productos: 1,
+                unidades: false,
+            },
+            {
+                status: 0,
+                category: 2,
+                socios: 5,
+                productos: 0,
+                unidades: true,
+            },
+            {
+                status: 0,
+                category: 3,
+                socios: 5,
+                productos: 0,
+                unidades: true,
+            }
+        ]
+    },
+    {
+        id: 4,
+        nombre: "androide 19",
+        imagenPerfil: "assets/img/profile-pics/androide_19.jpg",
+        correo: 'androide19@unah.hn',
+        contraseña:'suecia',
+        direccion: 'boulevard suyapa',
+        numero: 99887766,
+        pedidos: [
+            {
+                status: 0,
+                category: 1,
+                socios: 4,
+                productos: 1,
+                unidades: false,
+            },
+            {
+                status: 0,
+                category: 2,
+                socios: 5,
+                productos: 0,
+                unidades: true,
+            },
+            {
+                status: 0,
+                category: 3,
+                socios: 5,
+                productos: 0,
+                unidades: true,
             }
         ]
     }
@@ -180,20 +311,38 @@ var categorias = [
                 id: 2,
                 socio: "BURGER KING",
                 logo: "assets/img/restaurantes/R2.png",
-                direccion: "Mall Las Cascadas",
+                direccion: "Mall Multiplaza",
                 productos: [
                     {
-                        id: "Family",
-                        correcta: true,
+                        id: 1,
+                        nombre: "PHILLY CHEESE",
+                        precio: 139,
+                        imagen: 'assets/img/productos/bk/BK1.png',
                     },{
-                        id: "Mother",
-                        correcta: false,
+                        id: 2,
+                        nombre: "PHILLY CHEESE DOBLE",
+                        precio: 78,
+                        imagen: 'assets/img/productos/bk/BK2.png',
                     },{
-                        id: "water",
-                        correcta: false,
+                        id: 3,
+                        nombre: "VEGGIE WHOPPER",
+                        precio: 184,
+                        imagen: 'assets/img/productos/bk/BK3.png',
                     },{
-                        id: "Java",
-                        correcta: false,
+                        id: 4,
+                        nombre: "RODEO BBQ",
+                        precio: 109,
+                        imagen: 'assets/img/productos/bk/BK4.jpg',
+                    },{
+                        id: 5,
+                        nombre: "WHOPPER",
+                        precio: 128,
+                        imagen: 'assets/img/productos/bk/BK5.png',
+                    },{
+                        id: 6,
+                        nombre: "WHOPPER DOBLE",
+                        precio: 199,
+                        imagen: 'assets/img/productos/bk/BK6.png',
                     }
                 ]
         
@@ -984,15 +1133,7 @@ var categorias = [
     }
 ];
 
-var pedidosPendientes =[
-    {
-    id: 0,
-    categoria: 0,
-    socios: 0,
-    productos: 0,
-    unidades: 0,
-    },
-]
+var pedidosPTomados =[];
 
 
 
@@ -1002,14 +1143,17 @@ console.log(pedidosPendientes[0].unidades);
 // console.log('ver',categorias[0].socios);
 // console.log('ver',categorias.length);
 // console.log('ver',usuarios.length);
-// var unit;
-// var x;
+var unit;
+var x;
 
 
 var localstorage = window.localStorage;
 
 if(localStorage.getItem('usuarios')== null) {
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
+}
+if(localStorage.getItem('usuariosMotoristas')== null) {
+    localStorage.setItem('usuariosMotoristas', JSON.stringify(usuariosMotoristas));
 }
 
 if(localStorage.getItem('categorias')== null) {
@@ -1053,12 +1197,12 @@ function generarUsuarios() {
         document.getElementsByClassName('origen0')[0].id='titulo2'
         document.getElementById('titulo2').innerHTML = 
             `<div><i class="fa-solid fa-angle-left" onclick="login()"></i></div>
-            <div>aunClick-Usuarios</div>
+            <div>aunClick-UsuariosMotor</div>
             <div><i class="fa-solid fa-bars" onclick="menu()" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`
-        JSON.parse(localStorage.getItem('usuarios')).forEach(function(personaje) {
+        JSON.parse(localStorage.getItem('usuariosMotoristas')).forEach(function(personaje) {
             console.log("i", personaje.id);
             document.getElementById('personas').innerHTML +=
-                `<button class="btn" style="border-radius: 15%;" onclick="generarPp(${personaje.id}); console.log('id', ${personaje.id});">
+                `<button class="btn" style="border-radius: 15%;" onclick="generarPedidos(${personaje.id}); console.log('id', ${personaje.id});">
                     <img src="${personaje.imagenPerfil}" id="otraFoto" style="border-radius: 15%;">
                     <div id="rubro">
                         ${personaje.nombre}    
@@ -1066,6 +1210,37 @@ function generarUsuarios() {
                 </button>`;
            });  
 }
+
+function generarPedidos(a) {
+    x=0;
+    let cont=0;
+        document.getElementsByClassName('origen1')[0].id='categoria'
+        document.getElementById('categoria').innerHTML=null;
+        document.getElementsByClassName('origen0')[0].id='titulo2'
+        document.getElementById('titulo2').innerHTML = 
+            `<div><i class="fa-solid fa-angle-left" onclick="generarUsuarios(${a})"></i></div>
+            <div>aunClick-OrdenDisp</div>
+            <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`
+        JSON.parse(localStorage.getItem('usuarios')).forEach(function(personaje) {
+            cont++;
+            console.log("i", personaje.id);
+            document.getElementById('categoria').innerHTML +=
+                `<div id="carrito">
+                <button id="carrito" class="btn" style="border-radius: 20px; background-color:#9de40f;" onclick="generarPp(${a},${personaje.id-1}); console.log('id', ${personaje.id});">
+                    <div style="font-size:2rem;">Orden ${cont}</div>
+                    <div>
+                    <div style="width:170px;">
+                       Cliente: ${personaje.nombre}    
+                    </div>
+                    <div>Ubicaciones: ${valoresLugares(personaje.id-1)}</div>
+                    <div>Tiendas: ${valoresNegocios(personaje.id-1)}</div>
+                    <div>Productos: ${valoresUnidades(personaje.id-1)}</div>
+                    </div>
+                </button>
+                </div><br>`;
+           });  
+}
+
 
 
 function menu(a) {
@@ -1078,52 +1253,67 @@ function menu(a) {
     <div><i class="fa-regular fa-comment-dots"></i> MENSAJES</div>
     <div><i class="fa-regular fa-bell"></i> NOTIFICACIONES</div>
     <div onclick="login()" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> SALIR</div>`;
-    
-    
 }
     
 
-function generarPp(a) {
+function generarPp(a,e) {
     console.log('a', a);
     let tot=0;
     let usuario = JSON.parse(localstorage.getItem('usuarios'));
     console.log('usuario', usuario)
     let producto = JSON.parse(localstorage.getItem('categorias'));
-    //if(JSON.parse(localstorage.getItem('categorias'))[0].socios[0].id==iden) {console.log('func', JSON.parse(localstorage.getItem('categorias'))[0].socios[0].id);}
     document.getElementsByClassName('origen1')[0].id='categoria'
     document.getElementById('categoria').innerHTML=null;
     document.getElementById('titulo2').innerHTML = 
-        `<div><i class="fa-solid fa-angle-left" onclick="generarUsuarios()"></i></div>
-         <div>aunClick-Categorias</div>
+        `<div><i class="fa-solid fa-angle-left" onclick="generarPedidos()"></i></div>
+         <div>aunClick-Orden</div>
          <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`;
-    for (let i = 0; i < usuario.length; i++) {
-        for (let j = 0; j < usuario[i].pedidos.length; j++) {
-            //console.log('pedidos',usuario[i].pedidos[j]);
-            //console.log('idst', usuario[i].pedidos[j].status)
-            console.log('idst', usuario[i].pedidos[j].status)
-            if (usuario[i].pedidos[j].status==1) {
-                console.log('feliz', usuario[i].pedidos[j].status)
-                document.getElementById('categoria').innerHTML += 
-                `<div id="carrito">
-                    <button class="btn" id="botonSelect">
-                        <img src="${producto[usuario[i].pedidos[j].category-1].socios[usuario[i].pedidos[j].socios-1].productos[usuario[i].pedidos[j].productos-1].imagen}" style="width:100px">
-                    </button>
-                    <div style="width: 170px;">
-                        <div>${producto[usuario[i].pedidos[j].category-1].socios[usuario[i].pedidos[j].socios-1].socio}</div>
-                        <div>${producto[usuario[i].pedidos[j].category-1].socios[usuario[i].pedidos[j].socios-1].direccion}</div>
-                        <div>${producto[usuario[i].pedidos[j].category-1].socios[usuario[i].pedidos[j].socios-1].productos[usuario[i].pedidos[j].productos-1].nombre}</div>
-                        <div>L${producto[usuario[i].pedidos[j].category-1].socios[usuario[i].pedidos[j].socios-1].productos[usuario[i].pedidos[j].productos-1].precio}.00 x ${usuario[i].pedidos[j].unidades}</div>
-                        
-                    </div>
-                </div>
-                <br><br>`
-                //tot+= multiplicar(j);
-                //<div>TOTAL = L${multiplicar(j)}.00</div>
-            }
-            
-        }
+    for (let i = 0; i < usuario[e].pedidos.length; i++) {
         
-    }     
+            document.getElementById('categoria').innerHTML += 
+            `<div id="carrito">
+                    <button class="btn" id="carrito" style="background-color: #9de40f;" onclick="tomarOrden(${a},${i},${i})">
+                        <img src="${producto[usuario[e].pedidos[i].category-1].socios[usuario[e].pedidos[i].socios-1].productos[usuario[e].pedidos[i].productos-1].imagen}" style="width:100px">
+                    
+                    <div style="width: 170px;">
+                        <div>${producto[usuario[e].pedidos[i].category-1].socios[usuario[e].pedidos[i].socios-1].socio}</div>
+                        <div>${producto[usuario[e].pedidos[i].category-1].socios[usuario[e].pedidos[i].socios-1].direccion}</div>
+                        <div>${producto[usuario[e].pedidos[i].category-1].socios[usuario[e].pedidos[i].socios-1].productos[usuario[e].pedidos[i].productos-1].nombre}</div>
+                        <div>${usuario[e].pedidos[i].unidades} unidad(es)</div>
+                    </div>
+                    </button>
+            </div>
+            <br>`
+    }
+    document.getElementById('categoria').innerHTML +=
+    ` <div id="login-signup">
+        <button id="login" onclick="" data-bs-toggle="modal" data-bs-target="#agregado">
+            TOMAR
+        </button>
+        <hr>
+    </div>`
+}
+
+function tomarOrden(a,b,c) {
+    unit=1;
+    console.log('bc', b);
+    console.log('cd', c);
+    let usuario = JSON.parse(localstorage.getItem('usuarios'));
+    let producto = JSON.parse(localstorage.getItem('categorias'));
+    document.getElementById('categoria').innerHTML=null;
+    document.getElementById('titulo2').innerHTML = 
+        `<div><i class="fa-solid fa-angle-left" onclick="generarPp(${a})"></i></div>
+         <div>aunClick-Orden</div>
+         <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`;
+    document.getElementById('categoria').innerHTML =
+        `<div id="compra"><img src="assets/img/productos/bigos/bigos.jpg" style="border-radius: 15%; width:350px;">
+            <br><br><br>
+            <button class="btn col-6" id="botonSelect">
+                    <img src="${producto[usuario[b].pedidos[c].category-1].socios[usuario[b].pedidos[c].socios-1].productos[usuario[b].pedidos[c].productos-1].imagen}" style="border-radius: 15%; width:150px; height:150px;">
+                    <div id="rubro">${producto[usuario[b].pedidos[c].category-1].socios[usuario[b].pedidos[c].socios-1].productos[usuario[b].pedidos[c].productos-1].nombre}</div>      
+            </button>
+            <br><div id="rubro" style="font-size:2rem;">L ${producto[usuario[a].pedidos[b].category-1].socios[usuario[a].pedidos[b].socios-1].productos[usuario[a].pedidos[b].productos-1].precio}.00</div><br>
+        </div>`;
 }
 
 function generarAsociados(a,b) {
@@ -1133,14 +1323,14 @@ function generarAsociados(a,b) {
         `<div><i class="fa-solid fa-angle-left" onclick="generarPp(${a})"></i></div>
          <div>aunClick-Asociados</div>
          <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`;
-    JSON.parse(localStorage.getItem('categorias'))[b-1].socios.forEach(function(ques){
-        
-            document.getElementById('categoria').innerHTML +=
+    JSON.parse(localStorage.getItem('categorias'))[b-1].socios.forEach(function(ques) {
+        document.getElementById('categoria').innerHTML +=
             `<button class="btn col-6" id="botonSelect" onclick="generarProductos(${a}, ${b}, ${ques.id})">
-                 <img src="${ques.logo}" style="border-radius: 15%; width:130px; height:130px;">
-                 <div id="rubro">${ques.socio}
-                 </div>
-             </button>`;
+                <img src="${ques.logo}" style="border-radius: 15%; width:130px; height:130px;">
+                <div id="rubro">
+                    ${ques.socio}
+                </div>
+        </button>`;
        }); 
 }
 
@@ -1161,6 +1351,8 @@ function generarProductos(a,b,c) {
              </button>`;
        }); 
 }
+
+
 
 function compraProducto(a,b,c,d) {
     unit=1;
@@ -1312,7 +1504,6 @@ function perfil(a) {
                     <hr>
                 </div>
             </div>`; 
-        
     }
     
 }
@@ -1444,4 +1635,69 @@ function completado(a) {
     console.log('final', pedidosPendientes);
 }
 
+function valoresLugares(a) {
+    let arreglo=[];
+    let cont2=0;
+    let usuario = JSON.parse(localstorage.getItem('usuarios'));
+    let producto = JSON.parse(localstorage.getItem('categorias')); 
+    for (let j = 0; j < usuario[a].pedidos.length; j++) {
+        arreglo[j]=producto[usuario[a].pedidos[j].category-1].socios[usuario[a].pedidos[j].socios-1].direccion;
+    }
+    for (let i = 0; i < usuario[a].pedidos.length; i++) {
+        let lugar3= producto[usuario[a].pedidos[i].category-1].socios[usuario[a].pedidos[i].socios-1].direccion;
+        console.log('lugar3', lugar3);
+        for (let m = 0; m < usuario[a].pedidos.length; m++) {
+            if(i!=m){
+                console.log('arreglom', arreglo[m]);
+                console.log('m', m);
+                if (lugar3==arreglo[m]) {
+                    cont2++;
+                    //arreglo.splice(m,1);
+                    delete(arreglo[m])
+                    console.log('arregloe', arreglo);
+                    console.log('cont2', cont2);
+                } 
+            }  
+        }
+        delete(arreglo[i])
+    }
+    return (usuario[a].pedidos.length - cont2); 
+}
 
+function valoresNegocios(a) {
+    let arreglo=[];
+    let cont2=0;
+    let usuario = JSON.parse(localstorage.getItem('usuarios'));
+    let producto = JSON.parse(localstorage.getItem('categorias'));
+    for (let j = 0; j < usuario[a].pedidos.length; j++) {
+        arreglo[j]=producto[usuario[a].pedidos[j].category-1].socios[usuario[a].pedidos[j].socios-1].socio;
+    }
+    for (let i = 0; i < usuario[a].pedidos.length; i++) {
+        let lugar3= producto[usuario[a].pedidos[i].category-1].socios[usuario[a].pedidos[i].socios-1].socio;
+        console.log('lugar3', lugar3);
+        for (let m = 0; m < usuario[a].pedidos.length; m++) {
+            if(i!=m){
+                console.log('arreglom', arreglo[m]);
+                console.log('m', m);
+                if (lugar3==arreglo[m]) {
+                    cont2++;
+                    delete(arreglo[m])
+                    console.log('arregloe', arreglo);
+                    console.log('cont2', cont2);
+                } 
+            }  
+        }
+        delete(arreglo[i])
+    }
+    return (usuario[a].pedidos.length - cont2);
+}
+
+function valoresUnidades(a) {
+    let cont1=0;
+    let usuario = JSON.parse(localstorage.getItem('usuarios'));
+        for (let j = 0; j < (usuario[a].pedidos.length); j++) {
+            console.log('unidades',usuario[a].pedidos[j].unidades)
+            cont1 += usuario[a].pedidos[j].unidades;
+        }
+    return cont1;
+}
