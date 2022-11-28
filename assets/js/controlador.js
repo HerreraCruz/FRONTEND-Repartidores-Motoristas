@@ -16,7 +16,7 @@ var usuarios = [
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 2,
                 productos: 3,
@@ -48,14 +48,14 @@ var usuarios = [
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 1,
                 productos: 1,
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 1,
                 productos: 2,
@@ -73,21 +73,21 @@ var usuarios = [
         numero: 99887766,
         pedidos: [
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 1,
                 productos: 1,
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 2,
                 productos: 2,
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 3,
                 productos: 3,
@@ -105,21 +105,21 @@ var usuarios = [
         numero: 99887766,
         pedidos: [
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 1,
                 productos: 4,
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 2,
                 productos: 5,
                 unidades: 1,
             },
             {
-                status: 0,
+                status: 1,
                 category: 1,
                 socios: 1,
                 productos: 6,
@@ -1135,7 +1135,6 @@ var categorias = [
 
 var pedidosTomados =[];
 var unit;
-var x;
 var localstorage = window.localStorage;
 
 if(localStorage.getItem('usuarios')== null) {
@@ -1172,7 +1171,6 @@ function login() {
 }
 
 function generarUsuarios() {
-    x=0;
         document.getElementsByClassName('origen1')[0].id='personas'
         document.getElementById('personas').innerHTML=null;
         document.getElementsByClassName('origen0')[0].id='titulo2'
@@ -1181,7 +1179,6 @@ function generarUsuarios() {
             <div>aunClick-UsuariosMotor</div>
             <div><i class="fa-solid fa-bars" onclick="menu()" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`
         JSON.parse(localStorage.getItem('usuariosMotoristas')).forEach(function(personaje) {
-            //console.log("i", personaje.id);
             document.getElementById('personas').innerHTML +=
                 `<button class="btn" style="border-radius: 15%;" onclick="generarPedidos(${personaje.id}); console.log('id', ${personaje.id});">
                     <img src="${personaje.imagenPerfil}" id="otraFoto" style="border-radius: 15%;">
@@ -1193,9 +1190,8 @@ function generarUsuarios() {
 }
 
 function generarPedidos(a) {
-    x=0;
-    //console.log('averd',a)
     let cont=0;
+    let x=0;
         document.getElementsByClassName('origen1')[0].id='categoria'
         document.getElementById('categoria').innerHTML=null;
         document.getElementsByClassName('origen0')[0].id='titulo2'
@@ -1205,11 +1201,13 @@ function generarPedidos(a) {
             <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`
         JSON.parse(localStorage.getItem('usuarios')).forEach(function(personaje) {
             cont++;
-            //console.log("i", personaje.id);
-            document.getElementById('categoria').innerHTML +=
+            console.log('tamaño', personaje.pedidos.length);
+            if (personaje.pedidos.length>0) {
+                x++;
+                document.getElementById('categoria').innerHTML +=
                 `<div id="carrito">
                 <button id="carrito" class="btn" style="border-radius: 20px; background-color:#9de40f;" onclick="generarPp(${a},${personaje.id-1}); console.log('id', ${personaje.id});">
-                    <div style="font-size:2rem;">Orden ${cont}</div>
+                    <div style="font-size:2rem;">Orden ${x}</div>
                     <div>
                     <div style="width:170px;">
                        Cliente: ${personaje.nombre}    
@@ -1220,23 +1218,25 @@ function generarPedidos(a) {
                     </div>
                 </button>
                 </div><br>`;
+                
+            }
+            
            });  
 }
 
 function menu(a) {
-    //console.log('a', a);
-    
+    console.log('menu',a);
     if (unit==null) { unit=0;};
+    if (a==undefined) {a=0};
     document.getElementsByClassName("modal-body")[0].innerHTML=
     `<div onclick="perfil(${a})" data-bs-dismiss="modal"><i class="fa-regular fa-circle-user"></i> PERFIL</div>
-    <div onclick="ordenTomada(${a})" data-bs-dismiss="modal"><i class="fa-solid fa-motorcycle"></i> ordenes (${unidadesTotales(a)})</div>
+    <div onclick="ordenTomada(${a})" data-bs-dismiss="modal"><i class="fa-solid fa-motorcycle"></i> ordenes (${valoresUnidades(a-1)})</div>
     <div><i class="fa-regular fa-comment-dots"></i> MENSAJES</div>
     <div><i class="fa-regular fa-bell"></i> NOTIFICACIONES</div>
     <div onclick="login()" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> SALIR</div>`;
 }
     
 function generarPp(a,e) {
-    //console.log('a', a);
     document.getElementsByClassName('origen1')[0].id='categoria'
     document.getElementById('categoria').innerHTML=null;
     document.getElementById('titulo2').innerHTML = 
@@ -1244,6 +1244,7 @@ function generarPp(a,e) {
          <div>aunClick-Orden</div>
          <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`;
     for (let i = 0; i < usuario[e].pedidos.length; i++) {
+        if (usuario[e].pedidos[i].status==1) {
             document.getElementById('categoria').innerHTML += 
             `<div id="carrito">
                     <button class="btn" id="carrito" style="background-color: #9de40f;" onclick="tomarOrden(${a},${e},${i})">
@@ -1258,10 +1259,13 @@ function generarPp(a,e) {
                     </button>
             </div>
             <br>`
+            
+        }
+            
     }
     document.getElementById('categoria').innerHTML +=
     ` <div id="login-signup">
-        <button id="login" onclick="ordenActiva(${a},${e}); ordenTomada(${a},${e});" data-bs-toggle="modal" data-bs-target="#agregado">
+        <button id="login" onclick="ordenActiva(${a},${e}); eliminarProducto(${a},${e}); ordenTomada(${a},${e});" data-bs-toggle="modal" data-bs-target="#agregado">
             TOMAR
         </button>
         <hr>
@@ -1270,33 +1274,28 @@ function generarPp(a,e) {
 }
 
 function ordenActiva(a,e) {
-    //console.log('a',a);
-    //console.log('e',e);
-    //let pp =[];
+    console.log('ordenActiva',a);
     let otro;
     let aver=[];
-    for (let i = 0; i < usuario[a].pedidos.length; i++) {
-      
-      
+    for (let i = 0; i < usuario[a-1].pedidos.length; i++) {
                otro = 
-                    { 
-                    idM: a,
-                    id: e+1,
+                    {
                     category: usuario[e].pedidos[i].category,
                     socios: usuario[e].pedidos[i].socios,
                     productos: usuario[e].pedidos[i].productos,
                     unidades: usuario[e].pedidos[i].unidades,
                     };
-        
-        //console.log('pp', aver);
         aver.push(otro);
     }
-    pedidosTomados.push(aver);
-    //localStorage.setItem('pedidos', JSON.stringify(pedidosTomados));
+    let amigo = {
+            idM: a,
+            id: e+1,
+            datos: aver,
+        }
+    pedidosTomados.push(amigo);
     console.log('pedidos', pedidosTomados);  
-    //console.log('a1',a);
     console.log('length',aver.length);  
-    console.log('pedidos',pedidosTomados.length);      
+    console.log('pedidos',pedidosTomados.length);
 }
 
 function tomarOrden(a,e,c) {
@@ -1320,50 +1319,52 @@ function tomarOrden(a,e,c) {
 }
 
 function ordenTomada(a,e) {
-    x=0;
-    //let i=0;
     console.log('averde',a)
-    console.log('pt',pedidosTomados)
-    //console.log('ver',pedidosTomados[0].aver[0].idM)
-    console.log('nombre',usuario[0].nombre)
-    console.log('idm',pedidosTomados[0][0].idM)
-    
+    let f;
+    let g;
         document.getElementsByClassName('origen1')[0].id='categoria'
         document.getElementById('categoria').innerHTML=null;
         document.getElementsByClassName('origen0')[0].id='titulo2'
         document.getElementById('titulo2').innerHTML = 
-            `<div><i class="fa-solid fa-angle-left" onclick="generarUsuarios(${a})"></i></div>
+            `<div><i class="fa-solid fa-angle-left" onclick="generarPedidos(${a})"></i></div>
             <div>aunClick-OrdenTomada</div>
             <div><i class="fa-solid fa-bars" onclick="menu(${a})" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>`
             for (let i = 0; i < pedidosTomados.length; i++) {
-                if (pedidosTomados[i][i].idM==a) {
-                    
-                    console.log('ifor',i);
+                f=i;
+                console.log('ifor',i);
+                if (pedidosTomados[i].idM==a) {
+                    if (g!=a) {g=a; f=0;};
                     document.getElementById('categoria').innerHTML +=
                     `<div id="carrito">
                         <button id="carrito" class="btn" style="border-radius: 20px; background-color:#9de40f;" onclick="generarPp(${a},${pedidosTomados[i].id-1});">
-                            <div style="font-size:2rem;">Orden Tomada ${e+1}</div>
+                            <div style="font-size:2rem;">Orden Tomada ${f+1}</div>
                             <div>
                                 <div style="width:170px;">
-                                    Cliente: ${usuario[e].nombre}    
+                                    Cliente: ${usuario[pedidosTomados[i].id-1].nombre}    
                                 </div>
-                                <div>Ubicaciones: ${valoresLugares(e)}</div>
-                                <div>Tiendas: ${valoresNegocios(e)}</div>
-                                <div>Productos: ${valoresUnidades(e)}</div>
+                                <div>Ubicaciones: ${valoresLugares(pedidosTomados[i].id-1)}</div>
+                                <div>Tiendas: ${valoresNegocios(pedidosTomados[i].id-1)}</div>
+                                <div>Productos: ${valoresUnidades(pedidosTomados[i].id-1)}</div>
                             </div>
                         </button>
                     </div><br>`;  
                 }
-        
-                
             }
-                
 }
 
-function eliminarProducto(a) {
-
-
-    
+function eliminarProducto(a,e) {
+    console.log('e',e);
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].id==e+1) {
+            usuarios[i].pedidos.splice(0);
+            
+        }
+    }
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    console.log('usuarios', usuarios);
+    usuario = JSON.parse(localstorage.getItem('usuarios'));
+    producto = JSON.parse(localstorage.getItem('categorias'));
+    generarPedidos(a);
 }
 
 function generarProductos(a,b,c) {
@@ -1713,9 +1714,13 @@ function valoresNegocios(a) {
 
 function valoresUnidades(a) {
     let cont1=0;
+    if (a>=0) {
+        console.log('loco', a)
         for (let j = 0; j < (usuario[a].pedidos.length); j++) {
             //console.log('unidades',usuario[a].pedidos[j].unidades)
             cont1 += usuario[a].pedidos[j].unidades;
         }
-    return cont1;
+    return cont1;   
+    }
+    
 }
