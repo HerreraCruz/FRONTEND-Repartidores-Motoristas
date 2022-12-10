@@ -1357,7 +1357,6 @@ function eliminarProducto(a,e) {
     for (let i = 0; i < usuarios.length; i++) {
         if (usuarios[i].id==e+1) {
             usuarios[i].pedidos.splice(0);
-            
         }
     }
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
