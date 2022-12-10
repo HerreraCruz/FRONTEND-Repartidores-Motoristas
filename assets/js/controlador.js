@@ -52,14 +52,14 @@ var usuarios = [
                 category: 1,
                 socios: 1,
                 productos: 1,
-                unidades: 1,
+                unidades: 2,
             },
             {
                 status: 1,
                 category: 1,
                 socios: 1,
                 productos: 2,
-                unidades: 1,
+                unidades: 3,
             }
         ]
     },
@@ -123,7 +123,7 @@ var usuarios = [
                 category: 1,
                 socios: 1,
                 productos: 6,
-                unidades: 1,
+                unidades: 7,
             }
         ]
     }
@@ -1230,7 +1230,7 @@ function menu(a) {
     if (a==undefined) {a=0};
     document.getElementsByClassName("modal-body")[0].innerHTML=
     `<div onclick="perfil(${a})" data-bs-dismiss="modal"><i class="fa-regular fa-circle-user"></i> PERFIL</div>
-    <div onclick="ordenTomada(${a})" data-bs-dismiss="modal"><i class="fa-solid fa-motorcycle"></i> ordenes (${valoresUnidades(a-1)})</div>
+    <div onclick="ordenTomada(${a})" data-bs-dismiss="modal"><i class="fa-solid fa-motorcycle"></i> ordenes</div>
     <div><i class="fa-regular fa-comment-dots"></i> MENSAJES</div>
     <div><i class="fa-regular fa-bell"></i> NOTIFICACIONES</div>
     <div onclick="login()" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> SALIR</div>`;
